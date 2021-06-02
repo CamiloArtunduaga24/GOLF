@@ -1,0 +1,7 @@
+{
+  "name": "golgapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

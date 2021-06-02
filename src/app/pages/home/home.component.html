@@ -1,0 +1,33 @@
+<ion-header >
+  <ion-toolbar color="warning">
+    <ion-title class="subtitulo ion-text-wrap">
+      Golf App
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="dark" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+        <ion-button [routerLink]="['/perfil']" >
+        <ion-icon  color="dark" slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <div *ngFor="let noticia of noticias">
+    <app-noticias  [noticia]=noticia ></app-noticias>
+
+  </div>
+
+</ion-content>
+
+
+

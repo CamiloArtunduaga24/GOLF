@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      {{ regla.titulo }}
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="tertiary" slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+        <ion-button [routerLink]="['/reglamento']" >
+        <ion-icon  color="tertiary" slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="encabezado-bordes p-3 encabezado"> {{ regla.titulo }} </h3>
+    
+  <hr>
+      <ion-item lines="full">
+        <ion-img class="img-noticia" [src]="regla.img"></ion-img>
+      </ion-item>
+      <ion-item>
+        <ion-card-subtitle class="normal" >
+          {{ regla.regla }}
+        </ion-card-subtitle>
+      </ion-item>
+      <hr>
+      <ion-item>
+        <ion-card-subtitle class="normal" >
+          {{ regla.puntos }}
+        </ion-card-subtitle>
+      </ion-item>
+     
+      
+</ion-content>

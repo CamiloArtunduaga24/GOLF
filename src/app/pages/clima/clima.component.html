@@ -1,0 +1,66 @@
+<ion-header class="header" >
+  <ion-toolbar color="warning">
+    <ion-title class="subtitulo ion-text-wrap">
+      Clima
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="dark" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<body>
+
+  <div *ngIf="dataClima.isDay" class="widget">
+    <i class="fas fa-3x fa-sun fa-5x sun"></i> 
+  </div>
+  <div *ngIf="!dataClima.isDay"  class="widget">
+    <i class="fas fa-3x fa-sun sun"></i> 
+  </div>
+  <div class="widget cloudDiv">
+    <i class="fas fa-3x fa-cloud cloud"></i> 
+  </div>
+
+<div class="widget" style="font-size:40px; margin-top:5px;"> {{dataClima.temp_celcius}}° </div>
+<div class="widget"> {{dataClima.temp_min}}° / {{dataClima.temp_max}}° </div>
+<div class="widget" style="font-size:32px; margin-top:5px;">{{dataClima.name}} / Cund. </div>
+<div class="widget"> {{dataClima.pressure}} </div>
+<div class="widget"> Humedad: {{dataClima.main.humidity}} % </div>
+
+<div class="clima">
+  <img src="assets/icon/clima.svg" alt="">
+</div>
+
+<!-- <ion-content>
+  
+    
+  
+
+  <ion-card id="climaMain" style="position: relative" class="borde-tarjeta">
+    <ion-card-header>
+        <div *ngIf="dataClima.isDay" class="widget">
+          <i class="fas fa-3x fa-sun fa-5x sun"></i> 
+        </div>
+        <div *ngIf="!dataClima.isDay"  class="widget">
+          <i class="fas fa-3x fa-moon moon"></i> 
+        </div>
+        <div class="widget cloudDiv">
+          <i class="fas fa-3x fa-cloud cloud"></i> 
+        </div>
+      
+      <div class="widget" style="font-size:40px; margin-top:5px;"> {{dataClima.temp_celcius}}° </div>
+      <div class="widget"> {{dataClima.temp_min}}° / {{dataClima.temp_max}}° </div>
+      <div class="widget" style="font-size:32px; margin-top:5px;">{{dataClima.name}} / Cund. </div>
+      <div class="widget"> Humedad: {{dataClima.main.humidity}} % </div>
+    <ion-card-title class="subtitulo"></ion-card-title>
+    <ion-card-subtitle class="subtitulo-2"> </ion-card-subtitle>
+  </ion-card-header>
+  </ion-card>
+
+</ion-content> -->
+</body>

@@ -1,0 +1,83 @@
+
+  <ion-content>
+    <div *ngIf="!uid.length">
+      
+      <div class="logo">
+        <img src="assets/img/logo-pueblo-viejo.png">
+     </div>
+     <div class="login-section ion-padding">
+         <h1 class="bienvenido">Crea tú cuenta</h1>
+        <p class="inicia">Inicia sesión para continuar</p>
+      <ion-item *ngIf="!ingresaEnable">
+        <ion-label class="normal" position="floating">
+          Nombre
+        </ion-label>
+        <ion-input name="name"[(ngModel)]="cliente.nombre" class="normal"type="string" required></ion-input >
+      </ion-item>
+    
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Email
+        </ion-label>
+        <ion-input name="email"[(ngModel)]="cliente.email" class="normal"type="email" required></ion-input >
+      </ion-item>
+  
+      <ion-item *ngIf="!ingresaEnable">
+        <ion-label class="normal" position="floating">
+          Celular
+        </ion-label>
+        <ion-input name="number"[(ngModel)]="cliente.celular" class="normal" type="number" required></ion-input >
+      </ion-item>
+  
+      <ion-item>
+        <ion-label class="normal" position="floating" label for="password">
+          Contraseña
+        </ion-label>
+        <ion-input [(ngModel)]="cliente.password" class="password"type="password" required></ion-input >
+          
+      </ion-item>
+
+
+      
+      <div style="text-align: end; margin:10px" class="action-button">
+        <ion-button  *ngIf="!ingresaEnable" (click)=" ingresaEnable = true" class="login-button">Inicia sesión</ion-button>
+        <ion-button  *ngIf="ingresaEnable" (click)=" ingresar()" class="login-button">Iniciar sesión</ion-button>
+        <ion-button  *ngIf="!ingresaEnable" (click)="registrarse()" fill="outline" class="signup-button" [disabled]="cliente.nombre == ''" [disabled]="cliente.password == ''">Registrarse</ion-button>
+        <ion-button  *ngIf="ingresaEnable" (click)="ingresaEnable = false" fill="outline" class="signup-button">ó Registrarse</ion-button>
+       </div>  
+    </div>
+  </div>
+
+    <!--  -->
+    <div *ngIf="uid.length">
+<div class="login-section-2 ion-padding">
+
+      <h3 class="encabezado-bordes p-3 encabezado">Bienvenido {{cliente.nombre}}</h3>
+      <img src="assets/icon/golf.svg" >
+      <h4 class="normal p-3 ">{{cliente.nombre}}</h4>
+      <ion-item>
+        <ion-label class="normal" >
+           {{cliente.email}}
+        </ion-label>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label class="normal" >
+          Celular: {{cliente.celular}}
+        </ion-label>
+      </ion-item>
+      <div class="botones">
+      <div style="text-align: end; margin:10px">
+        <ion-button [routerLink]="['/']" 
+                    (click)="guardarUser()" 
+                    class="continuar">Vamos! </ion-button>
+      </div>
+      <div style="text-align: end; margin:10px">
+        <ion-button (click)="salir()" 
+                    class="salir">Salir</ion-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </ion-content>

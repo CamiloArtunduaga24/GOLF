@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="subtitulo ion-text-wrap">Puntaje actual</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="dark" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid fixed="true">
+    <ion-row justify-content-center-padding>
+      <ion-col>
+        <ion-item>
+          <ion-input [(ngModel)]="golfCourseName" placeholder="Titulo de score" required></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <br>
+    <ion-row justify-content-center-padding>
+      <ion-col>+
+        <ion-label>Numero de hoyos</ion-label>
+        <ion-select [(ngModel)]="holeNumber" placeholder="Seleccione uno" required>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="9">9</ion-select-option>
+          <ion-select-option value="18">18</ion-select-option>
+        </ion-select>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row justify-content-center-padding>
+      <ion-col text-center>
+        <ion-button (click)="populateInput()" [disabled]="!golfCourseName || !holeNumber" color="tertiary">
+          <ion-icon name="add" size="small" slot="icon-only"></ion-icon>
+          &nbsp; INICIA
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-card *ngIf="populateInputFlag">
+      <ion-card-header>Par actual (0-9)</ion-card-header>
+
+      <ion-row *ngFor="let popInputFields of ' '.repeat(holeNumber).split(''), let x = index">
+        <ion-col col-1 padding>
+          Hoyo n° : {{x+1}}
+        </ion-col>
+
+        <ion-col col-2>
+          <ion-input type="number" [(ngModel)]="parResult[x]" class="parInput" placeholder="Par {{x+1}}" [min]="minScore" [max]="maxScore" [attr.maxlength]="attrMaxLength" required></ion-input>
+        </ion-col>
+
+        <ion-col col-3>
+          <ion-input type="number" [(ngModel)]="holeResult[x]" class="scoreInput" placeholder="Hole {{x+1}}" [min]="minScore" [max]="maxScore" [attr.maxlength]="attrMaxLength" required></ion-input>
+        </ion-col>
+        <br>
+      </ion-row>
+
+    </ion-card>
+
+    <ion-row justify-content-center-padding>
+      <br>
+      <ion-col col-1>
+        <ion-button (click)="clearInput()" color="secondary">
+          Limpiar
+        </ion-button>
+      </ion-col>
+
+      <ion-col col-2>
+        <ion-button (click)="createRecord()" [disabled]="disableGolfRecordButton()">
+          Resultados del par
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

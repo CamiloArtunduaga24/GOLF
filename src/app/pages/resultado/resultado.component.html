@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="primary">
+      <ion-button (click)="return()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="subtitulo ion-text-wrap">Tu Resultado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="warning">
+    <ion-header color="warning">
+      <ion-item color="light">Resultados {{timestamp}} </ion-item>
+    </ion-header>
+
+    <ion-card-content>
+      <ion-list-header>Golf course name: {{golfCourseName}} </ion-list-header>
+      <ion-list-header>Hoyo n°: {{holeNumber}} </ion-list-header>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+  <ion-card color="light">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+          <ion-item color="light"><b>Resultado del Par:</b></ion-item>
+        </ion-col>
+        <ion-col col-2>
+          <ion-item color="light">(Total) {{parCal}}</ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-item color="light">[{{parResult}}]</ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-item color="light"><b>Resultado del hoyo:</b></ion-item>
+        </ion-col>
+        <ion-col col-2>
+          <ion-item color="light">(Total) {{holeCal}}</ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-item color="light">[{{holeResult}}]</ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>

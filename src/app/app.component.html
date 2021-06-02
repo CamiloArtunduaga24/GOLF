@@ -1,0 +1,78 @@
+<ion-app>
+  <ion-split-pane contentId="main">
+    <!--  the side menu  -->
+    <ion-menu contentId="main" menuId="principal">
+      <ion-header>
+        <ion-toolbar >
+        <ion-title class="subtitulo">Menu</ion-title>
+        <ion-icon slot="start" name=""></ion-icon>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+
+        <div class="golf">
+          <img src="assets/icon/golf-menu.svg" alt="">
+          </div>
+        
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/home']" >
+            <ion-label class="normal">Home</ion-label>
+            <ion-icon  slot="start" name="home-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false *ngIf="admin">
+          <ion-item button=true detail=true [routerLink]="['/inicio']" >
+            <ion-label class="normal">Configuración de Noticias</ion-label>
+            <ion-icon  slot="start" name="settings-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/calendario']" >
+            <ion-label class="normal">TeeTime </ion-label>
+            <ion-icon  slot="start" name="alarm-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/tarjeta']" >
+            <ion-label class="normal">Score</ion-label>
+            <ion-icon  slot="start" name="golf-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/consulta-score']" >
+            <ion-label class="normal">Consultar Score</ion-label>
+            <ion-icon  slot="start" name="calendar-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/reglamento']" >
+            <ion-label class="normal">Reglamento Golf</ion-label>
+            <ion-icon  slot="start" name="book-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item>
+          <ion-label class="normal">Dark Mode</ion-label>
+          <ion-icon  slot="start" name="invert-mode-outline"></ion-icon>
+          <ion-toggle slot="end" (ionChange)='toggleTheme($event)'></ion-toggle>
+        </ion-item>
+
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/clima']" >
+            <ion-label class="normal">Clima </ion-label>
+            <ion-icon  slot="start" name="cloud-outline"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-content>
+    </ion-menu>
+  
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

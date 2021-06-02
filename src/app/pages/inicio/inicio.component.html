@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Configuracion de Noticias
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="tertiary" slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar >
+  
+</ion-header>
+
+<ion-content>
+  
+  <div style="text-align: end; margin:10px">
+   <ion-button (click)="nuevo()" class="normal" color="dark">Nuevo</ion-button>
+  </div>
+
+  <div *ngIf="enableNewNoticia">
+
+      <ion-item>
+        <ion-buttons slot="end" >
+          <ion-button (click)="enableNewNoticia = false">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+          </ion-button>
+          <ion-button (click)="guardarNoticia()">
+            <ion-icon slot="icon-only" color="warning" name="bookmark"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <h3 class="encabezado-bordes p-3 encabezado">Ingrese Noticias</h3>
+    
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Noticia:
+        </ion-label>
+        <ion-input [(ngModel)]="newNoticias.nombre" class="normal"type="string"></ion-input >
+      </ion-item>
+    
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Descripcion:
+        </ion-label>
+        <ion-input [(ngModel)]="newNoticias.descripcion" class="normal"type="string"></ion-input >
+      </ion-item>
+    
+      <ion-item>
+        <ion-label class="normal" >
+          Imagen
+        </ion-label>
+        <ion-buttons slot="end" >
+          <ion-button>
+            <label for="file-upload">
+              <ion-icon slot="icon-only" name="image"></ion-icon>
+            </label>
+            <input (change)="newImageUpload($event)" id="file-upload"style="display: none" type="file" accept="image/*">
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <ion-item>
+        <img class="image" [src]="newNoticias.imagen" >
+      </ion-item>
+  
+    </div>
+
+    <ion-card>
+      <h3 class="encabezado-bordes p-3 encabezado">Lista de Noticias</h3>
+      <ion-item  *ngFor="let noticia of noticias">
+        <ion-label class="normal"> {{ noticia.nombre }} </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="newNoticias = noticia; enableNewNoticia = true;">
+            <ion-icon slot="icon-only" color="primary" name="create"></ion-icon>
+          </ion-button>
+          <ion-button (click)="deleteNoticia(noticia)">
+            <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-card>
+
+
+</ion-content>
+      
+      

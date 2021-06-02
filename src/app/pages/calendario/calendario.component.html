@@ -1,0 +1,124 @@
+<ion-header class="header">
+  <ion-toolbar color="warning">
+    <ion-title class="subtitulo ion-text-wrap">
+      {{ viewTitle }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="dark" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="today()">HOY</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuevo TeeTime</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+ 
+      <ion-item>
+        <ion-input type="text" placeholder="Titulo del evento" [(ngModel)]="event.title" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Descripcion" [(ngModel)]="event.desc"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Start</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>End</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
+      </ion-item>
+      <ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.title == ''">Add TEETIME</ion-button>
+ 
+    </ion-card-content>
+  </ion-card>
+
+  <!--Card for adding players-->
+  <!--PLAYER 1-->
+  <ion-card>  
+    <ion-card-header>
+      <ion-card-title>Jugador 1</ion-card-title>
+    </ion-card-header>   
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre del jugador 1" [(ngModel)]="event.NPlayer1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Correo electronico" [(ngModel)]="event.CPlayer1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Numero del documento" [(ngModel)]="event.DPlayer1"></ion-input>
+      </ion-item>
+     <ion-item> 
+      <ion-label>Reserva Caddie</ion-label>
+      <ion-checkbox color="primary" checked="false" [(ngModel)]="Cddie1"></ion-checkbox>
+     </ion-item> 
+    </ion-card-content>
+  </ion-card> 
+
+  <!--PLAYER 2-->
+  <ion-card>  
+    <ion-card-header>
+      <ion-card-title>Jugador 2</ion-card-title>
+    </ion-card-header>   
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre del jugador 2" [(ngModel)]="event.NPlayer2"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Correo electronico" [(ngModel)]="event.CPlayer2"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Numero del documento" [(ngModel)]="event.DPlayer2"></ion-input>
+      </ion-item>
+      <ion-item> 
+        <ion-label>Reserva Caddie</ion-label>
+        <ion-checkbox color="primary" checked="false" [(ngModel)]="Cddie2"></ion-checkbox>
+       </ion-item> 
+    </ion-card-content>
+  </ion-card> 
+
+  <!--PLAYER 3-->
+  <ion-card>  
+    <ion-card-header>
+      <ion-card-title>Jugador 3</ion-card-title>
+    </ion-card-header>   
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre del jugador 3" [(ngModel)]="event.NPlayer3"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Correo electronico" [(ngModel)]="event.CPlayer3"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Numero del documento" [(ngModel)]="event.DPlayer3"></ion-input>
+      </ion-item>
+           <ion-item> 
+      <ion-label>Reserva Caddie</ion-label>
+      <ion-checkbox color="primary" checked="false" [(ngModel)]="Cddie3"></ion-checkbox>
+     </ion-item> 
+    </ion-card-content>
+  </ion-card> 
+ 
+  <calendar 
+  [eventSource]="eventSource" 
+  [calendarMode]="calendar.mode" 
+  [currentDate]="calendar.currentDate"
+  (onEventSelected)="onEventSelected($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)" 
+  startHour="1"
+  endHour="23"
+  step="30"
+  startingDayWeek="1">
+  </calendar>
+ 
+</ion-content>

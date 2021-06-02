@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title class="subtitulo ion-text-wrap">
+      Reglamento 
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="dark" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="federacion">
+  <img src="assets/icon/federacion.png" >
+  </div>
+<ion-card *ngFor="let regla of reglas; let i = index">
+  <ion-card-header>
+   
+    <ion-card-title class="titulo"> {{regla.titulo}} </ion-card-title>
+
+    <ion-item  (click)="verReglamento(i)" >
+      <ion-icon  slot="end" name="caret-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-card-header>
+  
+</ion-card>
+
+  </ion-content>
+

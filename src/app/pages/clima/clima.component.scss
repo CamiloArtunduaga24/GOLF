@@ -1,0 +1,82 @@
+
+.borde-tarjeta {
+    border-radius: 2%;
+}
+.clima {
+    margin:1px auto;
+    margin-top: 2rem;
+    display:block;
+    width: 200px;
+    height: 200px;
+}
+
+
+#climaMain {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    background: radial-gradient(#2076AF ,#7DC5F5  );
+}
+
+.widget {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    font-family: 'Poppins', sans-serif !important;
+    color: white !important;
+}
+
+.sun {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: yellow;
+    filter: drop-shadow(1px 1px 10px yellow);
+    animation-name: sunMovement ;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.moon {
+    margin-top: 10px;
+    color: white;
+    filter: drop-shadow(1px 1px 10px white);
+}
+
+.cloudDiv {
+    margin-top: -40px;
+    
+}
+
+.cloud {
+    color: rgb(157, 189, 199);
+    filter: drop-shadow(1px 1px 5px rgb(104,175,197));
+    animation-name: cloudMovement;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes cloudMovement {
+    from {margin-left: -55px;}
+    to{margin-left: 65px;}
+}
+
+@keyframes sunMovement {
+    from {transform: rotateZ(0deg);}
+    to{transform: rotateZ(360deg);}
+}
+body {
+    margin-top: 3rem;
+    background: radial-gradient(#2471A3 ,#1F618D   );
+    display: block;
+}
+.header{
+    background: radial-gradient(#2471A3 ,#1F618D   ) !important;
+}

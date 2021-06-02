@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title class="subtitulo ion-text-wrap">Tu Score</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="dark" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!--  iterates through all the rows of golf records in the database and displays them to the user-->
+  <ion-card *ngFor="let item of golfData ">
+
+  <ion-card-header>
+    <ion-item>Nombre: {{item.GolfCourseName}}</ion-item>
+  </ion-card-header>
+  <ion-grid>
+    <ion-row padding>
+      <ion-col col-1>Par de hoyo: [{{item.ParResult}}]</ion-col>
+
+      <ion-col col-2>Hoyos: [{{item.HoleResult}}]</ion-col>
+    </ion-row>
+  </ion-grid>
+
+    <ion-card-subtitle>Time: {{item.Timestamp}} email:  {{item.email}}</ion-card-subtitle>
+
+</ion-card>
+</ion-content>
+
