@@ -16,15 +16,15 @@ const isAdmin = (next: any) => map( (user: any) => !!user && 'avDpZUmDLye6TxYoK9
 
 const routes: Routes = [
   {path: 'perfil', component:PerfilComponent },
-  {path: 'inicio', component:InicioComponent, ...canActivate(isAdmin) },
-  {path: 'home', component:HomeComponent, },
+  {path: 'inicio', component:InicioComponent, ...canActivate(isAdmin),  },
+  {path: 'home', component:HomeComponent,  },
   {path: 'tarjeta', component:TarjetaComponent },
   {path: 'reglamento', component:ReglamentoComponent },
   {path: 'clima', component:ClimaComponent },
   {path: 'calendario', component:Calendariocomponent},
   {path: 'regla/:id', component:ReglaComponent },
   {path: 'consulta-score', component:ConsultaScoreComponent},
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: 'perfil', pathMatch: 'full'},
 ];
 
 @NgModule({
