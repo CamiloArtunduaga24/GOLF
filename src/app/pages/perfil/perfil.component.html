@@ -5,8 +5,8 @@
         <img src="assets/img/logo-pueblo-viejo.png">
      </div>
      <div class="login-section ion-padding">
-       <h1 class="bienvenido">Crea tú cuenta</h1>
-       <p class="inicia">Inicia sesión para continuar</p>
+       <h1 class="titulo-1">Crea tú cuenta</h1>
+       <p class="minititulo">Inicia sesión para continuar</p>
 
        <form [formGroup]="formularioRegistro">
       <ion-item *ngIf="!ingresaEnable">
@@ -74,7 +74,9 @@
 <div class="login-section-2 ion-padding">
 
       <h3 class="encabezado-bordes p-3 encabezado">Bienvenido {{cliente.nombre}}</h3>
+      <div class="golf-inicio">
       <img src="assets/icon/golf.svg" >
+    </div>
       <h4 class="normal p-3 ">{{cliente.nombre}}</h4>
       <ion-item>
         <ion-label class="normal" >

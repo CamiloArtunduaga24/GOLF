@@ -23,6 +23,7 @@ export interface Cliente {
    regla?: string;
    puntos?: string;
    img?: string;
+  
  }
 
 

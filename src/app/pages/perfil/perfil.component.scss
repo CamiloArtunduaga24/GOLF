@@ -5,7 +5,7 @@ ion-content {
 }
 
 .login-section {
-    height: 73vh;
+    height: 75vh;
     width: 100%;
     max-width: 500px;
     background: #fff;
@@ -31,9 +31,9 @@ ion-content {
 }
 
 .logo {
-    margin-top: 1rem;
+    margin-top: .7rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .action-button {
     text-align: center;
@@ -72,16 +72,23 @@ ion-content {
         -color: #04395c ;
         font-weight: bold;
         width: 100%;
+        margin-bottom: 2rem;
     }
 }
 
 .error {
     margin-top: 0;
-    margin: 5px;
+    margin: 3px;
     font-size: .7rem;
     color: red;
 }
 .input-error {
     border-color: red;
+}
+.golf-inicio {
+    margin:auto;
+    display:block;
+    width: 300px;
+    height: 200px;
 }
 
