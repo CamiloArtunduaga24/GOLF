@@ -4,6 +4,8 @@ import {ModalController, NavController} from '@ionic/angular';
 import { ResultadoComponent } from '../resultado/resultado.component';
 import { MenuController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FirestoreService } from '../../services/firestore.service';
+import { FireauthService } from '../../services/fireauth.service';
 
 
 
@@ -34,6 +36,8 @@ export class TarjetaComponent implements OnInit {
                 private navigationController: NavController,
                 public menuController: MenuController,
                 private db: AngularFirestore,
+                public fireStoreService: FirestoreService,
+                public auth: FireauthService
     ) {
     }
 
@@ -45,7 +49,7 @@ export class TarjetaComponent implements OnInit {
         this.populateInputFlag = true;
     }
 
-    createRecord() {
+    async createRecord() {
         this.populateInputFlag = false;
 
         // Stores the inputs in suitable key: value relationship
@@ -57,6 +61,7 @@ export class TarjetaComponent implements OnInit {
         record['holeResult'] = this.holeResult.toString();
 
         // Shows the result page modal to the user
+    
         this.db.collection('Score').add(record);
         this.showResult();
     }

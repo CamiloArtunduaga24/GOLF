@@ -29,7 +29,7 @@ export class AppComponent {
                getUid() {
                 this.fireauthService.estateAuth().subscribe( resp => {
                   if(resp !== null) {
-                    if ( resp.uid == '9Mjh9j86BwVa7rXYJc79EEhk17D3') {
+                    if ( resp.uid == 'avDpZUmDLye6TxYoK91JkDIddHM2') {
                       this.admin = true;         
                     }else {      
                       this.admin = false;        

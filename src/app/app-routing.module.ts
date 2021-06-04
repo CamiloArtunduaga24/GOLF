@@ -12,7 +12,7 @@ import { canActivate } from '@angular/fire/auth-guard';
 import { map } from 'rxjs/operators';
 import { ReglaComponent } from './components/regla/regla.component';
 
-const isAdmin = (next: any) => map( (user: any) => !!user && '9Mjh9j86BwVa7rXYJc79EEhk17D3' === user.uid);
+const isAdmin = (next: any) => map( (user: any) => !!user && 'avDpZUmDLye6TxYoK91JkDIddHM2' === user.uid);
 
 const routes: Routes = [
   {path: 'perfil', component:PerfilComponent },

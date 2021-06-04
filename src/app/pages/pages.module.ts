@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { ReglamentoComponent } from './reglamento/reglamento.component';
 import { NoticiasComponent } from './noticias/noticias.component';
@@ -38,7 +38,8 @@ import { ConsultaScoreComponent} from './consulta-score/consulta-score.component
     RouterModule,
     IonicModule,
     NgCalendarModule,
-    ComponentsModule 
+    ComponentsModule ,
+    ReactiveFormsModule
   ],
   exports:[
     ClimaComponent,

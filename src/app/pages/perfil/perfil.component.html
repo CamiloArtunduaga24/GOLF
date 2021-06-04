@@ -1,4 +1,3 @@
-
   <ion-content>
     <div *ngIf="!uid.length">
       
@@ -6,43 +5,65 @@
         <img src="assets/img/logo-pueblo-viejo.png">
      </div>
      <div class="login-section ion-padding">
-         <h1 class="bienvenido">Crea tú cuenta</h1>
-        <p class="inicia">Inicia sesión para continuar</p>
+       <h1 class="bienvenido">Crea tú cuenta</h1>
+       <p class="inicia">Inicia sesión para continuar</p>
+
+       <form [formGroup]="formularioRegistro">
       <ion-item *ngIf="!ingresaEnable">
         <ion-label class="normal" position="floating">
           Nombre
         </ion-label>
-        <ion-input name="name"[(ngModel)]="cliente.nombre" class="normal"type="string" required></ion-input >
+        <ion-input formControlName="nombre" name="name"[(ngModel)]="cliente.nombre" [ngClass]="{'input-error':nombre.invalid && (nombre.dirty || nombre.touched)}"type="string" required></ion-input >
+          <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" 
+                class="error">
+                <span *ngIf="nombre.errors.required">El campo nombre es obligatorio</span> 
+                <span *ngIf="nombre.errors.maxlength">Error el tamaño maximo es de 50 caracteres</span> 
+          </div>
       </ion-item>
+
     
       <ion-item>
         <ion-label class="normal" position="floating">
           Email
         </ion-label>
-        <ion-input name="email"[(ngModel)]="cliente.email" class="normal"type="email" required></ion-input >
+        <ion-input formControlName="email" name="email"[(ngModel)]="cliente.email" [ngClass]="{'input-error':email.invalid && (email.dirty || email.touched)}"class="normal"type="email" required></ion-input >
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" 
+                class="error">
+                <span *ngIf="email.errors.required">El campo email es obligatorio</span> 
+                <span *ngIf="email.errors.email">Por favor ingrese una dirección de correo valida</span> 
+          </div>
       </ion-item>
   
       <ion-item *ngIf="!ingresaEnable">
         <ion-label class="normal" position="floating">
           Celular
         </ion-label>
-        <ion-input name="number"[(ngModel)]="cliente.celular" class="normal" type="number" required></ion-input >
+        <ion-input formControlName="celular"[(ngModel)]="cliente.celular" [ngClass]="{'input-error':celular.invalid && (celular.dirty || celular.touched)}"class="normal" type="number" required></ion-input >
+          <div *ngIf="celular.invalid && (celular.dirty || celular.touched)" 
+                class="error">
+                <span *ngIf="celular.errors.maxlength">Tamaño máximo de numero celular</span> 
+                <span *ngIf="celular.errors.required">El campo celular es obligatorio</span> 
+          </div>
       </ion-item>
   
       <ion-item>
         <ion-label class="normal" position="floating" label for="password">
           Contraseña
         </ion-label>
-        <ion-input [(ngModel)]="cliente.password" class="password"type="password" required></ion-input >
-          
+        <ion-input formControlName="password" [(ngModel)]="cliente.password" class="password"type="password" required></ion-input > 
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" 
+                class="error">
+                <span *ngIf="password.errors.minlength">Tamaño minimo de contraseña de 8</span> 
+                <span *ngIf="password.errors.required">Contraseña obligatoria</span> 
+          </div>
       </ion-item>
-
+</form>
 
       
       <div style="text-align: end; margin:10px" class="action-button">
+        <ion-button  *ngIf="!ingresaEnable" (click)="registrarse()" fill="outline" class="signup-button" [disabled]="!formularioRegistro.valid" >Registrarse</ion-button>
         <ion-button  *ngIf="!ingresaEnable" (click)=" ingresaEnable = true" class="login-button">Inicia sesión</ion-button>
         <ion-button  *ngIf="ingresaEnable" (click)=" ingresar()" class="login-button">Iniciar sesión</ion-button>
-        <ion-button  *ngIf="!ingresaEnable" (click)="registrarse()" fill="outline" class="signup-button" [disabled]="cliente.nombre == ''" [disabled]="cliente.password == ''">Registrarse</ion-button>
         <ion-button  *ngIf="ingresaEnable" (click)="ingresaEnable = false" fill="outline" class="signup-button">ó Registrarse</ion-button>
        </div>  
     </div>
