@@ -15,17 +15,17 @@
   <ion-card *ngFor="let item of golfData ">
 
   <ion-card-header>
-    <ion-item>Nombre: {{item.GolfCourseName}}</ion-item>
+    <ion-item class="normal">Nombre: {{item.GolfCourseName}}</ion-item>
   </ion-card-header>
   <ion-grid>
     <ion-row padding>
-      <ion-col col-1>Par de hoyo: [{{item.ParResult}}]</ion-col>
+      <ion-col col-1 class="normal">Par de hoyo: [{{item.ParResult}}]</ion-col>
 
-      <ion-col col-2>Hoyos: [{{item.HoleResult}}]</ion-col>
+      <ion-col col-2 class="normal">Hoyos: [{{item.HoleResult}}]</ion-col>
     </ion-row>
   </ion-grid>
 
-    <ion-card-subtitle>Time: {{item.Timestamp}} </ion-card-subtitle>
+    <ion-card-subtitle class="normal">Time: {{item.Timestamp}} </ion-card-subtitle>
 
 </ion-card>
 </ion-content>
